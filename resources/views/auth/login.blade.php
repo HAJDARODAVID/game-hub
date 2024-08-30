@@ -1,7 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.login')
 
 @section('content')
 <div class="container">
+    <div class="d-flex justify-content-center">
+        <img src="{{ url('img/logo.jpg') }}" alt="" width="350" height="150">
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

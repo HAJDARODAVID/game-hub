@@ -72,5 +72,13 @@
             </div>
         </div>
     </div>
+
+    <div class="d-flex justify-content-center mt-3">
+        <p class="text-white">
+            {{ strtoupper(\App\Models\FunnySayings::PHRASE[array_rand(\App\Models\FunnySayings::PHRASE, 1)]) }}
+        </p>
+    </div>
+
+    
 </div>
 @endsection

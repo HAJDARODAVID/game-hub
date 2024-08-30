@@ -3,12 +3,12 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
-        <img src="{{ url('img/logo.jpg') }}" alt="" width="350" height="150">
+        <img src="{{ url('img/logo.jpg') }}" alt="" width="280" height="100">
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                {{-- <div class="card-header">{{ __('Login') }}</div> --}}
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -59,12 +59,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </form>

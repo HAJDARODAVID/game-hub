@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
-        {{-- <img src="{{ url('img/logo.jpg') }}" alt="" width="280" height="100"> --}}
+        <img src="{{ url('img/logo.jpg') }}" alt="" width="280" height="100">
     </div>
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -45,9 +45,9 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md offset-md-4">
+                            <div class="col-md">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div class="form-check">
+                                    <div class="">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
     
                                         <label class="form-check-label text-white" for="remember">

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="d-flex justify-content-center">
-        <img src="{{ url('img/logo.jpg') }}" alt="" width="280" height="100">
+        {{-- <img src="{{ url('img/logo.jpg') }}" alt="" width="280" height="100"> --}}
     </div>
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -18,12 +18,8 @@
                                         <button class="btn btn-dark" style="border-radius: 0px !important;"><i class="bi bi-envelope-at"></i></button>
                                     </div>
                                     <input id="email" type="email" class="form-control rounded @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"    required autocomplete="email" autofocus style="border-radius: 0px !important; border: 0px !important">
+                                    <div class="break"></div>
                                 </div>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 
@@ -35,11 +31,6 @@
                                     </div>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" style="border-radius: 0px !important; border: 0px !important">
                                 </div>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
                             </div>
                         </div>
 

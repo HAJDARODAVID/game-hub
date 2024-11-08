@@ -21,13 +21,10 @@
         <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
             <div class="container">
                 <x-app-text-logo />
-                
                 @if(Session::get('is_phone'))
                     <x-menu.toggle-menu-btn />
                 @endif
-                
-                <x-menu.main-menu />
-                
+                <x-menu.main-menu /> 
             </div>
         </nav>
 

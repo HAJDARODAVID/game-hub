@@ -11,6 +11,7 @@ class MainMenuItem extends Component
     public $logout;
     public $route;
     public $name;
+    public $last;
     /**
      * Create a new component instance.
      */
@@ -18,8 +19,10 @@ class MainMenuItem extends Component
         $logout = FALSE,
         $route = 'home',
         $name = 'Home',
+        $last = FALSE,
         )
     {
+        $this->last=$last;
         $this->logout = $logout;
         if($this->logout){
             $this->route = 'logout';

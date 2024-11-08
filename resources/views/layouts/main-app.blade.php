@@ -31,7 +31,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <x-footer.phone-footer />
     </div>
-    <x-footer.phone-footer />
+    
 </body>
 </html>

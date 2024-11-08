@@ -18,7 +18,7 @@
 </head>
 <body style="background-color: rgb(18, 18, 19);">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm sticky-top">
             <div class="container">
                 <x-app-text-logo />
                 @if(Session::get('is_phone'))
@@ -32,5 +32,6 @@
             @yield('content')
         </main>
     </div>
+    <x-footer.phone-footer />
 </body>
 </html>

@@ -13,7 +13,7 @@
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end text-white">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end text-white">{{ __('Username') }}</label>
 
                             <div class="col-md">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus style="border-radius: 0px !important; border: 0px !important">

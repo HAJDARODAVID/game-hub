@@ -22,7 +22,10 @@
             <div class="container">
                 <x-app-text-logo />
                 
-                <x-menu.toggle-menu-btn />
+                @if(Session::get('is_phone'))
+                    <x-menu.toggle-menu-btn />
+                @endif
+                
                 <x-menu.main-menu />
                 
             </div>

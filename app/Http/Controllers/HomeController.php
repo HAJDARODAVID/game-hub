@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Facades\Agent;
 use Illuminate\Support\Facades\Session;
 //use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -27,7 +28,7 @@ class HomeController extends Controller
     {
          //Check if the user is on phone, and put into session
          if(!Session::get('is_phone')){
-            Session::put('is_phone', TRUE);
+            Session::put('is_phone', Agent::isPhone());
         }
         //Session::forget('is_phone');
         return view('home');

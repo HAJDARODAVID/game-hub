@@ -9,7 +9,7 @@
                 <div class=""><button class="btn btn-success btn-sm" style="border-radius: 0px !important;">Join</button></div>
             @endif
             @if ($noItems)
-                <div class="">
+                <div class="py-1">
                     <i>No items available!</i>
                 </div>
             @endif

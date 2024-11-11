@@ -26,7 +26,7 @@ class GameService
 
     public function getTitle(){
         if($this->game != NULL){
-            return $this->game->name;
+            return $this->game->title;
         }
     }
 

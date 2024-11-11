@@ -23,6 +23,7 @@ class GamesCatalogueDTO
             $this->gamesArray[$count] = [
                 'title' => $game->title,
                 'cover' => $game->cover,
+                'name' => $game->name,
             ];
             $count++;
         }

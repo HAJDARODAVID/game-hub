@@ -52,7 +52,15 @@
                                     </div>
                                 </div>
                             </div>
+                            <x-cards.item-card>
+                                <div class="">
+                                    <b>Game by: david69</b> <br>
+                                    <span class="text-danger">Players in game: 12</span>
+                                </div>
+                                <div class=""><button class="btn btn-success btn-sm" style="border-radius: 0px !important;">Join</button></div>
+                            </x-cards.item-card>
                             <x-cards.item-card noItems=TRUE />
+                            
                         </x-cards.basic-card>
                     </div>
                 </div>

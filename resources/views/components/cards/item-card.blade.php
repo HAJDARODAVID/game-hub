@@ -1,12 +1,8 @@
 <div class="card bg-dark" style="border-radius: 0px !important;">
     <div class="card-body text-white py-2">
-        <div class="d-flex justify-content-@if ($noItems)center @else between @endif align-items-center">
+        <div class="d-flex @if ($noItems) justify-content-center @else justify-content-between  @endif align-items-center">
             @if (!$noItems)
-                <div class="">
-                    <b>Game by: david69</b> <br>
-                    <span class="text-danger">Players in game: 12</span>
-                </div>
-                <div class=""><button class="btn btn-success btn-sm" style="border-radius: 0px !important;">Join</button></div>
+                {{ $slot }}
             @endif
             @if ($noItems)
                 <div class="py-1">

@@ -19,6 +19,6 @@ class Game extends Model
 
     protected $table = 'games';
     protected $fillable = [
-        'title', 'name', 'status'
+        'title', 'name', 'status', 'cover'
     ];
 }

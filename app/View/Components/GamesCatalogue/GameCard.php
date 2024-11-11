@@ -8,13 +8,13 @@ use Illuminate\View\Component;
 
 class GameCard extends Component
 {
-    public $title;
+    public $gameInfo;
     /**
      * Create a new component instance.
      */
-    public function __construct($title='game title')
+    public function __construct($gameInfo)
     {
-        $this->title = $title;
+        $this->gameInfo = $gameInfo;
     }
 
     /**

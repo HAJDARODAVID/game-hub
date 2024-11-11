@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('name');
             $table->integer('status');
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

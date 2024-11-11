@@ -9,7 +9,7 @@
                 @for ($g = 1; $g <= $perRow; $g++)
                     <div class="col-md">
                         @isset($games[$perRow*$i - $perRow +$g]) 
-                        <x-games-catalogue.game-card :title='$games[$perRow*$i - $perRow +$g]' />
+                        <x-games-catalogue.game-card :gameInfo='$games[$perRow*$i - $perRow +$g]' />
                         @endisset
                     </div>
                 @endfor

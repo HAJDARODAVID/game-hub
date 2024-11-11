@@ -20,7 +20,10 @@ class GamesCatalogueDTO
     public function execute(){
         $count = 1;
         foreach ($this->games as $game) {
-            $this->gamesArray[$count] = $game->title;
+            $this->gamesArray[$count] = [
+                'title' => $game->title,
+                'cover' => $game->cover,
+            ];
             $count++;
         }
         return $this->gamesArray;

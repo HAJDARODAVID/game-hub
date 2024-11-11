@@ -52,6 +52,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <x-cards.item-card noItems=TRUE />
                         </x-cards.basic-card>
                     </div>
                 </div>

@@ -35,7 +35,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="">
                                             <b>Game by: david69</b> <br>
-                                            <span class="text-danger">Players is game: 12</span>
+                                            <span class="text-danger">Players in game: 12</span>
                                         </div><br>
                                         <div class=""><button class="btn btn-success btn-sm" style="border-radius: 0px !important;">Join</button></div>
                                     </div>
@@ -46,7 +46,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="">
                                             <b>Game by: david69</b> <br>
-                                            <span class="text-danger">Players is game: 12</span>
+                                            <span class="text-danger">Players in game: 12</span>
                                         </div><br>
                                         <div class=""><button class="btn btn-success btn-sm" style="border-radius: 0px !important;">Join</button></div>
                                     </div>

@@ -1,6 +1,6 @@
 <div class="modal pt-5 @if ($size) modal-{{ $size }} @endif" style="display: @if($show) block @endif; {{ $blur }};">
     <div class="modal-dialog @if ($position) {{ $position }} @endif" role="document">
-        <div class="modal-content" style="border-radius: 0px !important;">
+        <div class="modal-content bg-dark" style="border-radius: 0px !important;">
             @if ($alert)
                 <div class="alert @if ($aType) alert-{{ $aType }} @endif mb-0" role="alert">
                     <h4 class="alert-heading">{{ $mainTitle }}</h4>
@@ -10,7 +10,7 @@
                 </div>
             @else
                 @if ($header)
-                    <div class="modal-header d-flex justify-content-between align-items-center">
+                    <div class="modal-header d-flex justify-content-between align-items-center" style="border-style:none; border-radius: 0px !important; background-color: rgb(27, 30, 33)">
                             <div>
                                 <h5 class="modal-title">
                                     {{ $mainTitle }}
@@ -26,13 +26,13 @@
                 @endif
                 
                 @if ($body)
-                    <div class="modal-body">
+                    <div class="modal-body h-100">
                         {{ $slot }}
                     </div>
                 @endif
 
                 @if ($footer)
-                    <div class="modal-footer">
+                    <div class="modal-footer" style="border-style:none; border-radius: 0px !important; background-color: rgb(27, 30, 33)">
                         {{ $footerItems }}
                     </div>
                 @endif

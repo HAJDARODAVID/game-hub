@@ -4,6 +4,7 @@ namespace App\Services\Games;
 
 use App\Models\Game;
 use App\Models\GameInstance;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class GameService.
@@ -47,6 +48,14 @@ class GameService
     public function openInstances(){
         $this->instances = $this->instances->where('status', GameInstance::STATUS_OPEN);
         return $this;
+    }
+
+    public function openNewGameInstance(){
+        return GameInstance::create([
+            'game_id' => $this->game->id, 
+            'status' => GameInstance::STATUS_OPEN, 
+            'created_by' => Auth::user()->id, 
+        ]);
     }
 
     private function setGameBasicInfo($name){

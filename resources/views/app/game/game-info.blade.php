@@ -7,7 +7,9 @@
             <x-cards.basic-card>
                 <x-slot:title>{{ $gameInfo->getTitle() }}</x-slot:title>
                 <x-slot:headerOptions>
-                    <button class="btn btn-success btn-sm" style="border-radius: 0px !important;"><i class="bi bi-plus-circle"></i></button>
+                    @livewire('games.create-new-game-instance-btn', [
+                        'gameName' => $gameInfo->getName()
+                    ])
                 </x-slot:headerOptions>
                 <div class="row">
                     <div class="col-md">
@@ -34,7 +36,6 @@
                     </div>
                 </div>
             </x-cards.basic-card>
-            <x-modal.basic :show=TRUE :blur=TRUE></x-modal.basic>
         </div>
     </div>
 </div>

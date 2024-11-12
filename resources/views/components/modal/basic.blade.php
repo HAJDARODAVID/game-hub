@@ -10,7 +10,7 @@
                 </div>
             @else
                 @if ($header)
-                    <div class="modal-header d-flex justify-content-between align-items-center" style="border-style:none; border-radius: 0px !important; background-color: rgb(27, 30, 33)">
+                    <div class="modal-header text-white d-flex justify-content-between align-items-center py-0 py-2" style="border-style:none; border-radius: 0px !important; background-color: rgb(27, 30, 33)">
                             <div>
                                 <h5 class="modal-title">
                                     {{ $mainTitle }}
@@ -26,7 +26,7 @@
                 @endif
                 
                 @if ($body)
-                    <div class="modal-body h-100">
+                    <div class="modal-body text-white">
                         {{ $slot }}
                     </div>
                 @endif

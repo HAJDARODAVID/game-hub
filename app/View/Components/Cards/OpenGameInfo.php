@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class OpenGameInfo extends Component
 {
+    public $instance;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($instance=NULL)
     {
-        //
+        $this->instance = $instance;
     }
 
     /**

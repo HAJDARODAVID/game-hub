@@ -28,13 +28,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md">
-                        <x-cards.basic-card classAtt='mb-2'> 
-                            <x-slot:title>open games</x-slot:title>
-                            <x-cards.item-card>
-                                <x-cards.open-game-info />
-                            </x-cards.item-card>
-                            <x-cards.item-card :noItems=TRUE />   
-                        </x-cards.basic-card>
+                        @livewire('games.open-instances-list', [
+                            'gameName' => $gameInfo->getName()
+                        ])
                     </div>
                 </div>
             </x-cards.basic-card>

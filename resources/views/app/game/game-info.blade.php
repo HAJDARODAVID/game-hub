@@ -34,6 +34,7 @@
                     </div>
                 </div>
             </x-cards.basic-card>
+            <x-modal.basic :show=TRUE :blur=TRUE></x-modal.basic>
         </div>
     </div>
 </div>

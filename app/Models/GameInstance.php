@@ -23,4 +23,8 @@ class GameInstance extends Model
     public function getPlayer(): HasOne{
         return $this->hasOne(User::class, 'id', 'created_by');
     }
+
+    public function getGame(): HasOne{
+        return $this->hasOne(Game::class, 'id', 'game_id');
+    }
 }

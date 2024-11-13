@@ -7,9 +7,11 @@
             <x-cards.basic-card>
                 <x-slot:title>{{ $gameInfo->getTitle() }}</x-slot:title>
                 <x-slot:headerOptions>
-                    @livewire('games.create-new-game-instance-btn', [
-                        'gameName' => $gameInfo->getName()
-                    ])
+                    @if (!Auth::user()->game_inst)
+                        @livewire('games.create-new-game-instance-btn', [
+                            'gameName' => $gameInfo->getName()
+                        ])
+                    @endif
                 </x-slot:headerOptions>
                 <div class="row">
                     <div class="col-md">

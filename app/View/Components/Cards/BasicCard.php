@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class BasicCard extends Component
 {
     public $title;
+    public $secTitle;
     public $header;
     public $classAtt;
     public $headerOptions;
@@ -17,12 +18,14 @@ class BasicCard extends Component
      */
     public function __construct(
         $title = 'basic card',
+        $secTitle = NULL,
         $header = TRUE,
         $classAtt = NULL,
         $headerOptions = NULL,
     )
     {
         $this->title = $title;
+        $this->secTitle = $secTitle;
         $this->header = $header;
         $this->classAtt = $classAtt;
         $this->headerOptions = $headerOptions;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GameInstance;
 use App\Services\Games\GameService;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,13 @@ class GamesController extends Controller
         ]);
     }
 
-    public function gameLobby(){
-        return 'im in';
+    public function gameLobby(Request $request){
+        if(is_null($request->get('game_inst'))){
+            return redirect()->route('home');
+        }
+        $gameInst= GameInstance::where('id', $request->get('game_inst'))->with('getGame')->first();
+        return view('app.game.game-lobby', [
+            'gameInst' => $gameInst,
+        ]);
     }
 }

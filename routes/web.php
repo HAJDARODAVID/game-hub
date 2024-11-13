@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/game/{game}', [App\Http\Controllers\GamesController::class, 'index'])->name('game');
-Route::get('/game_lobby', [App\Http\Controllers\GamesController::class, 'gameLobby'])->name('gameLobby');
+Route::get('/game-lobby', [App\Http\Controllers\GamesController::class, 'gameLobby'])->name('gameLobby');
 
 
 Route::get('/clear', function() {

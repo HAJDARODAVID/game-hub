@@ -4,6 +4,7 @@ namespace App\Services\Games;
 
 use App\Models\Game;
 use App\Models\GameInstance;
+use App\Models\User;
 use App\Services\Player\PlayerService;
 use Illuminate\Support\Facades\Auth;
 
@@ -59,10 +60,26 @@ class GameService
         ]);
         $playerService = new PlayerService($newGameInstance->id);
         $playerService->joinGameInstance();
+        return $newGameInstance;
+    }
+
+    public function throwPlayersOutOfGame($gameInst){
+        $playersInGame = User::where('game_inst', $gameInst)->get();
+        foreach ($playersInGame as $player) {
+            $player->update([
+                'game_inst' => NULL,
+            ]);
+        }
+        return;
     }
 
     public function disableGameInstance($id){
+        $this->throwPlayersOutOfGame($id);
         return GameInstance::where('id', $id)->first()->update(['status' => GameInstance::STATUS_DISABLED]);
+    }
+
+    public function startGameInstance($id){
+        return GameInstance::where('id', $id)->first()->update(['status' => GameInstance::STATUS_ACTIVE]);
     }
 
     private function setGameBasicInfo($name){

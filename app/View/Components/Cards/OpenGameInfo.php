@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Cards;
 
+use App\Services\Games\GameService;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -16,7 +17,7 @@ class OpenGameInfo extends Component
     {
         $this->instance = $instance;
     }
-
+    
     /**
      * Get the view / contents that represent the component.
      */

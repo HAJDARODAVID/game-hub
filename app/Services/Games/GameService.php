@@ -58,6 +58,10 @@ class GameService
         ]);
     }
 
+    public function disableGameInstance($id){
+        return GameInstance::where('id', $id)->first()->update(['status' => GameInstance::STATUS_DISABLED]);
+    }
+
     private function setGameBasicInfo($name){
         return Game::where('name', $name)->first();
     }

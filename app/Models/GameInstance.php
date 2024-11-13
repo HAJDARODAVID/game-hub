@@ -10,7 +10,8 @@ class GameInstance extends Model
 {
     const STATUS_OPEN = 1;
     const STATUS_ACTIVE = 2;
-    const STATUS_DISABLED = 3;
+    const STATUS_FINISHED = 3;
+    const STATUS_DISABLED = -1;
 
     use HasFactory;
     

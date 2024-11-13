@@ -4,6 +4,7 @@ namespace App\Services\Games;
 
 use App\Models\Game;
 use App\Models\GameInstance;
+use App\Services\Player\PlayerService;
 use Illuminate\Support\Facades\Auth;
 
 /**
@@ -51,11 +52,13 @@ class GameService
     }
 
     public function openNewGameInstance(){
-        return GameInstance::create([
+        $newGameInstance = GameInstance::create([
             'game_id' => $this->game->id, 
             'status' => GameInstance::STATUS_OPEN, 
             'created_by' => Auth::user()->id, 
         ]);
+        $playerService = new PlayerService($newGameInstance->id);
+        $playerService->joinGameInstance();
     }
 
     public function disableGameInstance($id){

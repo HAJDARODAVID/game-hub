@@ -18,7 +18,7 @@ class PlayerService
     public function __construct($gameInst = NULL)
     {
         $this->player = Auth::user();
-        $this->gameInst = $gameInst;
+        $this->gameInst = $gameInst != NULL ? $gameInst : $this->player->game_inst;
     }
 
     public function joinGameInstance(){

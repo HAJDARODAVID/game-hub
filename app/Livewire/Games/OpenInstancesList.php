@@ -16,10 +16,6 @@ class OpenInstancesList extends Component
         $this->instances = (new GameService($this->gameName))->openInstances()->getInstances();
     }
 
-    public function refreshMe(){
-        return;
-    }
-
     public function render()
     {
         return view('livewire.games.open-instances-list');

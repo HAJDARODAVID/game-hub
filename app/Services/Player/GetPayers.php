@@ -50,6 +50,9 @@ class GetPayers
         if(!empty($gamePlayers)){
             $this->players = $this->players->whereIn('id', $gamePlayers);
         }
+        if(empty($gamePlayers)){
+            $this->players = [];
+        }
         return $this;
     }
 

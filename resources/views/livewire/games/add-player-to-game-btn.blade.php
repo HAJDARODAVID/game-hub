@@ -6,21 +6,22 @@
         <x-slot:headerBtn>
             <button class="btn btn-dark btn-sm" style="border-radius: 0px !important;" wire:click='toggleModal()'>X</button>
         </x-slot:headerBtn>
-        <x-cards.item-card>
-            <div class="d-flex justify-content-between">
-                <div class=""><b>Naziv igrača</b></div>
-                <div class="">
-                    <button class="btn btn-success btn-sm" style="border-radius: 0px !important;">INVITE</button>
+        @if ($players)
+        @foreach ($players as $user_id => $player)
+            <x-cards.item-card>
+                <div class="d-flex justify-content-between">
+                    <div class=""><b>{{ $player['name'] }}</b></div>
+                    <div class="">
+                        @if(!$player['invited'])
+                            <button class="btn btn-success btn-sm" style="border-radius: 0px !important;" wire:click='invite({{ $user_id }})'>INVITE</button>
+                        @endif
+                    </div>
                 </div>
-            </div>
-        </x-cards.item-card>
-        <x-cards.item-card>
-            <div class="d-flex justify-content-between">
-                <div class="">Naziv igrača</div>
-                <div class="">
-                    <button class="btn btn-success btn-sm" style="border-radius: 0px !important;">INVITE</button>
-                </div>
-            </div>
-        </x-cards.item-card>
+            </x-cards.item-card>
+            
+        @endforeach            
+        @else
+            <x-cards.item-card :noItems=TRUE />
+        @endif
     </x-modal.basic>
 </div>

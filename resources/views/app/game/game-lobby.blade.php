@@ -22,9 +22,14 @@
                             <x-slot:title>players</x-slot:title>
                             <x-slot:headerOptions>
                                 @if( $gameInst->created_by == Auth::user()->id)
-                                    @livewire('games.add-player-to-game-btn')
+                                    @livewire('games.add-player-to-game-btn',[
+                                        'gameInst' => $gameInst->id,
+                                    ])
                                 @endif
                             </x-slot:headerOptions>
+                            @livewire('games.players-in-game-lobby-list',[
+                                'gameInst' => $gameInst->id,
+                            ])
                         </x-cards.basic-card>
                     </div>
                 </div>

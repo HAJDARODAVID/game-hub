@@ -17,8 +17,8 @@ class CreateNewGameInstanceBtn extends Component
     public function createNewGame(){
         $this->show = !$this->show;
         $service = (new GameService($this->gameName))->openNewGameInstance();
-        $this->dispatch('refresh-open-games-list');
-        return;
+        //$this->dispatch('refresh-open-games-list');
+        return redirect()->route('gameLobby');
     }
 
     public function render()

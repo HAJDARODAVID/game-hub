@@ -21,4 +21,8 @@ class GamesController extends Controller
             'gameInfo' => $gameService,
         ]);
     }
+
+    public function gameLobby(){
+        return 'im in';
+    }
 }

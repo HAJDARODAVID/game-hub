@@ -1,5 +1,5 @@
 <div class="modal pt-5 @if ($size) modal-{{ $size }} @endif" style="display: @if($show) block @endif; {{ $blur }};">
-    <div class="modal-dialog @if ($position) {{ $position }} @endif" role="document" style=" @if($fullScreen) height: 88vh !important @endif">
+    <div class="modal-dialog @if ($position) {{ $position }} @endif" role="document" style=" @if($fullScreen) height: 80vh !important @endif">
         <div class="modal-content bg-dark" style="border-radius: 0px !important; @if($fullScreen) max-height: none !important; min-height: 100% !important  @endif">
             @if ($alert)
                 <div class="alert @if ($aType) alert-{{ $aType }} @endif mb-0" role="alert">

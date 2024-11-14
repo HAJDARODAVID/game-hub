@@ -1,4 +1,4 @@
-<div>
+<div wire:poll='getMyInvites'>
     @foreach ($invites as $invite)
         <x-cards.item-card>
             <div class="d-flex justify-content-between align-items-center">

@@ -9,15 +9,18 @@ use Illuminate\View\Component;
 class ItemCard extends Component
 {
     public $noItems;
+    public $text;
     /**
      * Create a new component instance.
      */
     public function __construct(
         $noItems = FALSE,
+        $text = 'No items available!'
     )
     {   
         if($noItems){
-           return $this->noItems = $noItems;
+            $this->text = $text;
+            return $this->noItems = $noItems;
         }
         
     }

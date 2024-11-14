@@ -6,7 +6,7 @@
             @endif
             @if ($noItems)
                 <div class="py-1">
-                    <i>No items available!</i>
+                    <i>{{ $text }}</i>
                 </div>
             @endif
         </div>

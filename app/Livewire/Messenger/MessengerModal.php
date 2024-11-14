@@ -11,6 +11,9 @@ class MessengerModal extends Component
 
     #[On('toggle-messenger-modal')]
     public function toggleMessenger(){
+        if(!$this->show){
+            $this->dispatch('refresh-conversation-list');
+        }
         $this->show = !$this->show;
     }
     public function render()

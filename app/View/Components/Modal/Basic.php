@@ -21,6 +21,7 @@ class Basic extends Component
     public $footerItems;
     public $position;
     public $blur;
+    public $fullScreen;
 
     const BLUR_ATT = 'background-color: rgba(0, 0, 0, 0.4); backdrop-filter: blur(5px)';
     /**
@@ -39,7 +40,8 @@ class Basic extends Component
         $footer = TRUE,
         $footerItems = NULL,
         $position = NULL,
-        $blur = FALSE
+        $blur = FALSE,
+        $fullScreen = FALSE
     )
     {
         $this->show   = $show;
@@ -55,6 +57,7 @@ class Basic extends Component
         $this->footerItems = $footerItems;
         $this->position = $this->setPosition($position);
         $this->blur = $blur ? self::BLUR_ATT : NULL;
+        $this->fullScreen = $fullScreen;
     }
 
     private function setModalSize($size){

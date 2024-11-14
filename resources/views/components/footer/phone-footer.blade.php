@@ -6,7 +6,7 @@
                         {{ Auth::user()->name }}
                     </div>
                     <div class="d-flex gap-1">
-                        <button class="btn btn-dark btn-sm"><i class="bi bi-chat"></i><span class="badge text-danger">2</span></button>
+                        @livewire('messenger.messenger-btn')
                         @livewire('games.my-invites-btn')
                         @if (Auth::user()->game_inst)
                             <x-v-divider />

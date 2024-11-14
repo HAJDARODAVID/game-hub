@@ -32,8 +32,10 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
         <x-footer.phone-footer />
     </div>
+    @livewire('messenger.messenger-modal')
     @livewireScripts
 </body>
 </html>

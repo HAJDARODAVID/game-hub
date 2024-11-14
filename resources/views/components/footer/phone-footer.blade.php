@@ -7,7 +7,7 @@
                     </div>
                     <div class="d-flex gap-1">
                         <button class="btn btn-dark btn-sm"><i class="bi bi-chat"></i><span class="badge text-danger">2</span></button>
-                        <button class="btn btn-dark btn-sm"><i class="bi bi-list-task"></i><span class="badge text-danger">19</span></button>
+                        @livewire('games.my-invites-btn')
                         @if (Auth::user()->game_inst)
                             <x-v-divider />
                             <a href="{{ route('gameLobby',['game_inst' => Auth::user()->game_inst]) }}" class="btn btn-dark btn-sm"><i class="bi bi-controller"></i></a>  

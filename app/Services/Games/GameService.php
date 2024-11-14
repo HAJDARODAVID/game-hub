@@ -4,6 +4,7 @@ namespace App\Services\Games;
 
 use App\Models\Game;
 use App\Models\GameInstance;
+use App\Models\GamePlayer;
 use App\Models\User;
 use App\Services\Player\PlayerService;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,12 @@ class GameService
         foreach ($playersInGame as $player) {
             $player->update([
                 'game_inst' => NULL,
+            ]);
+        }
+        $playersInGame = GamePlayer::where('game_id', $gameInst)->get();
+        foreach ($playersInGame as $player) {
+            $player->update([
+                'status' => GamePlayer::PLAYER_STATUS_DENIED,
             ]);
         }
         return;

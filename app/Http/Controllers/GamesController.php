@@ -32,4 +32,8 @@ class GamesController extends Controller
             'gameInst' => $gameInst,
         ]);
     }
+
+    public function myInvites(){
+        return view('app.game.my-invites');
+    }
 }

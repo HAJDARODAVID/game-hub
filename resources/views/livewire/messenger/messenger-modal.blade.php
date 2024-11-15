@@ -5,7 +5,9 @@
             <button class="btn btn-dark btn-sm" style="border-radius: 0px !important" wire:click='toggleMessenger()'>X</button>
         </x-slot:headerBtn>
         @if ($conversationId)
-            @livewire('messenger.messenger-conversation')
+            @livewire('messenger.messenger-conversation',[
+                'convId' => $conversationId,
+            ])
         @else
             @livewire('messenger.messenger-conversations-list')
         @endif

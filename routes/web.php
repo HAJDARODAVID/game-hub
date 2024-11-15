@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Artisan;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/goodBye', [App\Http\Controllers\HomeController::class, 'goodBye'])->name('goodBye');
 Route::get('/game/{game}', [App\Http\Controllers\GamesController::class, 'index'])->name('game');
 Route::get('/game-lobby', [App\Http\Controllers\GamesController::class, 'gameLobby'])->name('gameLobby');
 Route::get('/my-invites', [App\Http\Controllers\GamesController::class, 'myInvites'])->name('myInvites');

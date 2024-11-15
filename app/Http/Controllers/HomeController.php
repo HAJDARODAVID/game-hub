@@ -33,4 +33,8 @@ class HomeController extends Controller
         //Session::forget('is_phone');
         return view('home');
     }
+
+    public function goodBye(){
+        return view('goodBye');
+    }
 }

@@ -12,6 +12,7 @@ class ItemCard extends Component
     public $text;
     public $cursor;
     public $wireClick;
+    public $id;
     /**
      * Create a new component instance.
      */
@@ -20,8 +21,10 @@ class ItemCard extends Component
         $text = 'No items available!',
         $cursor = '',
         $wireClick = NULL,
+        $id = NULL,
     )
     {   
+        $this->id = $id;
         $this->cursor = $cursor;
         $this->wireClick = $wireClick;
         if($noItems){

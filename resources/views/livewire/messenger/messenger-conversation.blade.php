@@ -5,8 +5,9 @@
                 IME ČOVEKA
             </x-cards.item-card>
         </div>
-        <div class="w-100 overflow-auto py-2" style="height: 48vh;">
-            Flex item <br>
+        <div id="messeges" class="w-100 overflow-auto my-2" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight">
+            <x-cards.item-card>
+                Flex item <br>
             Flex item <br>Flex item <br>
             Flex item <br>
             Flex item <br>
@@ -31,6 +32,7 @@
             Flex item <br>
             Flex item <br>
             Flex item <br>
+            </x-cards.item-card>
         </div>
         <div class="mt-auto w-100">
             <div class="form-group">

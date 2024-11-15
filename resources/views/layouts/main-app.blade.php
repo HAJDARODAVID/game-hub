@@ -37,8 +37,5 @@
     </div>
     @livewire('messenger.messenger-modal')
     @livewireScripts
-    <script>
-        Livewire.onPageExpired((response, message) => {})
-    </script>
 </body>
 </html>

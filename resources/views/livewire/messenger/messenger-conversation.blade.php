@@ -5,33 +5,12 @@
                 IME ČOVEKA
             </x-cards.item-card>
         </div>
-        <div id="messeges" class="w-100 overflow-auto my-2" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight">
+        <div id="messeges" class="w-100 overflow-auto my-2 p-1" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight">
             <x-cards.item-card>
-                Flex item <br>
-            Flex item <br>Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
-            Flex item <br>
+                test
+            </x-cards.item-card>
+            <x-cards.item-card>
+                Ovo je sad testna poruka 
             </x-cards.item-card>
         </div>
         <div class="mt-auto w-100">

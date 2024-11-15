@@ -5,18 +5,19 @@
                 IME RAZGOVORA
             </x-cards.item-card>
         </div>
-        <div id="messeges" class="w-100 overflow-auto my-2 p-1" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight">
-            <x-cards.item-card>
-                {{ $convId }}
-            </x-cards.item-card>
-            <x-cards.item-card>
-                Ovo je sad testna poruka 
-            </x-cards.item-card>
+        <div class="" wire:poll='setMessages'>
+            <div x-data="{ messages: '{{ $messages }}' }">
+                <div id="messeges" class="w-100 overflow-auto my-2 p-1" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight+999">
+                    @foreach ($messages as $msg)
+                        @livewire('messenger.message-container', ['msg' => $msg], key($msg->id . now()))   
+                    @endforeach
+                </div>
+            </div>
         </div>
         <div class="mt-auto w-100">
             <div class="form-group d-flex align-items-center">
-                <textarea class="form-control" style="border-radius: 0px !important"></textarea>
-                <button class="btn btn-dark shadow" style="border-radius: 0px !important;"><i class="bi bi-send"></i></button>
+                <textarea class="form-control" style="border-radius: 0px !important" wire:model.blur='newMessage'></textarea>
+                <button class="btn btn-dark shadow" style="border-radius: 0px !important;" wire:click='sendNewMessage()'><i class="bi bi-send"></i></button>
             </div>
         </div>
       </div>

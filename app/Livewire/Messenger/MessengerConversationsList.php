@@ -18,6 +18,10 @@ class MessengerConversationsList extends Component
     public function getConversations(){
         $this->conversations = (new MessengerService())->getConversations();
     }
+
+    public function displayThisConversation($id){
+        return $this->dispatch('set-conversation-id', $id)->to(MessengerModal::class);
+    }
     
     public function render()
     {

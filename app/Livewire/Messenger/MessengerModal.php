@@ -8,6 +8,7 @@ use Livewire\Attributes\On;
 class MessengerModal extends Component
 {
     public $show = FALSE;
+    public $conversationId = NULL;
 
     #[On('toggle-messenger-modal')]
     public function toggleMessenger(){
@@ -15,6 +16,11 @@ class MessengerModal extends Component
             $this->dispatch('refresh-conversation-list');
         }
         $this->show = !$this->show;
+    }
+
+    #[On('set-conversation-id')]
+    public function setConversationId($id){
+        $this->conversationId = $id;
     }
     public function render()
     {

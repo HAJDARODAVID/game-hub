@@ -10,14 +10,20 @@ class ItemCard extends Component
 {
     public $noItems;
     public $text;
+    public $cursor;
+    public $wireClick;
     /**
      * Create a new component instance.
      */
     public function __construct(
         $noItems = FALSE,
-        $text = 'No items available!'
+        $text = 'No items available!',
+        $cursor = '',
+        $wireClick = NULL,
     )
     {   
+        $this->cursor = $cursor;
+        $this->wireClick = $wireClick;
         if($noItems){
             $this->text = $text;
             return $this->noItems = $noItems;

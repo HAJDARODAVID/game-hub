@@ -1,5 +1,5 @@
 <div class="d-flex @if ($msg->msg_by == Auth::user()->id) justify-content-end @else justify-content-start @endif)  mt-3 p-0" style="border-style: none !important">
-    <div class="card" style="border-width: 0px !important;">
+    <div class="card" style="width:75px; border-width: 0px !important;">
         {{-- style="border-radius: 0px !important;" --}}
         <div class="card-body text-white py-2" style="@if ($msg->msg_by == Auth::user()->id) background-color: rgb(46, 49, 61) @else background-color: rgb(28, 31, 46) @endif">
             <div class="">

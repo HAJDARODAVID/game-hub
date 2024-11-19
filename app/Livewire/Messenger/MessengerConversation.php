@@ -13,14 +13,20 @@ class MessengerConversation extends Component
     public $messageCount = 10;
 
     public $conversationData = NULL;
+    public $conversationName = NULL;
     public $messages = NULL;
 
     public function mount(){
-        $this->setConversationData()->setMessages();
+        $this->setConversationData()->setConversationName()->setMessages();
     }
 
     public function setConversationData(){
         $this->conversationData = (new MessengerConversationService($this->convId))->getConversationData();
+        return $this;
+    }
+
+    public function setConversationName(){
+        $this->conversationName = (new MessengerConversationService($this->convId))->getConversationName();
         return $this;
     }
 

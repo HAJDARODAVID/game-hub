@@ -2,10 +2,11 @@
 
 namespace App\Services\Messenger;
 
-use App\Models\Messenger\Conversation;
-use App\Models\Messenger\Message;
 use App\Models\User;
+use App\Models\Messenger\Message;
+use App\Models\Messenger\Recipient;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Messenger\Conversation;
 
 /**
  * Class MessengerConversationService.
@@ -15,6 +16,7 @@ class MessengerConversationService
     private $user;
     private $convId;
     private $conversation = NULL;
+    private $conversationName = NULL;
 
     public function __construct(
         $convId,
@@ -53,6 +55,12 @@ class MessengerConversationService
         }
     }
 
+    public function getConversationName(){
+        if($this->isConversationSet()){
+            return $this->conversationName;
+        }
+    }
+
     private function isConversationSet(){
         if($this->conversation){
             return TRUE;
@@ -63,6 +71,19 @@ class MessengerConversationService
     
     private function setConversationData(){
         $this->conversation = Conversation::where('id', $this->convId)->first();
+        if(!is_null($this->conversation->name)){
+            $this->conversationName = $this->conversation->name;
+            return $this;
+        }
+
+        //Return names of recipients
+        $recipients = Recipient::where('conv_id', $this->conversation->id)->whereNotIn('user_id', [$this->user->id])->get();
+        $title = '';
+        foreach ($recipients as $recipient) {
+            $title .= $recipient->getUser->name .', ';
+        }
+        $title = rtrim($title, ", ");
+        $this->conversationName = $title;
         return $this;
     }
 

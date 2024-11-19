@@ -8,8 +8,8 @@
                 </div>
             </x-cards.item-card>
         </div>
-        <div class="w-100" wire:poll.5s='setMessages'> {{-- wire:poll='setMessages' --}}
-            <div x-data="{ messages: '{{ $messages }}' }">
+        <div class="w-100" wire:poll.5s='setMessages' x-data="{ messages: '{{ $messages }}' }"> {{-- wire:poll='setMessages' --}}
+            <div>
                 <div id="messeges" class="overflow-auto my-2 p-1" style="height: 48vh; width:100%" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight+999">
                     @foreach ($messages as $msg)
                         @livewire('messenger.message-container', ['msg' => $msg], key($msg->id . now()))   

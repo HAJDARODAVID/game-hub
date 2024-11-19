@@ -43,6 +43,10 @@ class MessengerConversation extends Component
         $this->setMessages();
         $this->newMessage = NULL;
     }
+
+    public function goBack(){
+        return $this->dispatch('go-back-to-all-conversations');
+    }
     
     public function render()
     {

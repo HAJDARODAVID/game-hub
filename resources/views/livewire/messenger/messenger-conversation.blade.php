@@ -4,7 +4,7 @@
             <x-cards.item-card>
                 <div class="d-flex justify-content-between">
                     <div class="">{{ $conversationName }}</div>
-                    <button class="btn btn-dark btn-sm shadow" style="border-radius: 0px !important"><i class="bi bi-arrow-return-left"></i></button>
+                    <button class="btn btn-dark btn-sm shadow" style="border-radius: 0px !important" wire:click='goBack()'><i class="bi bi-arrow-return-left"></i></button>
                 </div>
             </x-cards.item-card>
         </div>

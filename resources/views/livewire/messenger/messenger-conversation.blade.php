@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="mt-auto w-100">
-            <div class="form-group d-flex align-items-center">
+            <div class="form-group d-flex align-items-center gap-2">
                 <textarea class="form-control" style="border-radius: 0px !important" wire:model.blur='newMessage'></textarea>
                 <button class="btn btn-dark shadow" style="border-radius: 0px !important;" wire:click='sendNewMessage()' x-on:click="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight"><i class="bi bi-send"></i></button>
             </div>

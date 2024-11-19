@@ -10,7 +10,7 @@
         </div>
         <div class="w-100" wire:poll.5s='setMessages'> {{-- wire:poll='setMessages' --}}
             <div x-data="{ messages: '{{ $messages }}' }">
-                <div id="messeges" class="w-100 overflow-auto my-2 p-1" style="height: 48vh; width:100%" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight+999">
+                <div id="messeges" class="overflow-auto my-2 p-1" style="height: 48vh; width:100%" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight+999">
                     @foreach ($messages as $msg)
                         @livewire('messenger.message-container', ['msg' => $msg], key($msg->id . now()))   
                     @endforeach

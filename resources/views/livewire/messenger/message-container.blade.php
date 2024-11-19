@@ -3,7 +3,7 @@
         {{-- style="border-radius: 0px !important;" --}}
         <div class="card-body text-white py-2" style="@if ($msg->msg_by == Auth::user()->id) background-color: rgb(46, 49, 61) @else background-color: rgb(28, 31, 46) @endif">
             <div class="">
-                <div class="">{{ $msg->getUser->name }}</div>
+                <div class="" style="font-size: 12px;">{{ $msg->getUser->name }}</div>
                 <hr class="p-0 m-0 my-1">
                 <div class="">{{ $msg->message }}</div>
                 <hr class="p-0 m-0 my-1">

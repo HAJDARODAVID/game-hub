@@ -2,10 +2,13 @@
     <div class="d-flex align-items-start flex-column" style="height: 200%;">
         <div class="w-100">
             <x-cards.item-card>
-                IME RAZGOVORA
+                <div class="d-flex justify-content-between">
+                    <div class="">IME RAZGOVORA</div>
+                    <button class="btn btn-dark btn-sm shadow" style="border-radius: 0px !important"><i class="bi bi-arrow-return-left"></i></button>
+                </div>
             </x-cards.item-card>
         </div>
-        <div class="" wire:poll='setMessages'>
+        <div class="" > {{-- wire:poll='setMessages' --}}
             <div x-data="{ messages: '{{ $messages }}' }">
                 <div id="messeges" class="w-100 overflow-auto my-2 p-1" style="height: 48vh;" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = $refs.scrollableDiv.scrollHeight+999">
                     @foreach ($messages as $msg)

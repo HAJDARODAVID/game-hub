@@ -8,7 +8,7 @@
                 </div>
             </x-cards.item-card>
         </div>
-        <div class="w-100" wire:poll.5s='setMessages' x-data="{ messages: '{{ $messages }}' }"> {{-- wire:poll='setMessages' --}}
+        <div class="w-100" x-data="{ messages: '{{ $messages }}' }" wire:poll.5s='setMessages'> {{-- wire:poll.5s='setMessages' --}}
             <div>
                 <div id="messeges" class="overflow-auto my-2 p-1" style="height: 48vh; width:100%" x-ref="scrollableDiv" x-init="$refs.scrollableDiv.scrollTop = ($refs.scrollableDiv.scrollHeight)+999">
                     @foreach ($messages as $msg)

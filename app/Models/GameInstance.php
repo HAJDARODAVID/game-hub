@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class GameInstance extends Model
 {
@@ -26,5 +27,9 @@ class GameInstance extends Model
 
     public function getGame(): HasOne{
         return $this->hasOne(Game::class, 'id', 'game_id');
+    }
+
+    public function getGamePlayers(): HasMany{
+        return $this->hasMany(GamePlayer::class, 'game_id', 'id');
     }
 }

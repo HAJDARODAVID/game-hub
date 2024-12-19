@@ -36,4 +36,15 @@ class GamesController extends Controller
     public function myInvites(){
         return view('app.game.my-invites');
     }
+
+    public function gameController($instance){
+        $gameService = new GameService();
+        $gameService->setGameInstancesById($instance)->setGameInfoByInstance();
+        if(!$gameService->isInstanceActive()){
+            return redirect()->route('home');
+        }
+        return view('app.game.game-controller',[
+            'gameInfo' => $gameService,            
+        ]);
+    }
 }

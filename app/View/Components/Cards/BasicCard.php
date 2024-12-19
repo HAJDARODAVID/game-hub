@@ -11,6 +11,7 @@ class BasicCard extends Component
     public $title;
     public $secTitle;
     public $header;
+    public $headerIcon;
     public $classAtt;
     public $headerOptions;
     /**
@@ -22,6 +23,7 @@ class BasicCard extends Component
         $header = TRUE,
         $classAtt = NULL,
         $headerOptions = NULL,
+        $headerIcon = NULL,
     )
     {
         $this->title = $title;
@@ -29,6 +31,7 @@ class BasicCard extends Component
         $this->header = $header;
         $this->classAtt = $classAtt;
         $this->headerOptions = $headerOptions;
+        $this->headerIcon = $headerIcon;
     }
 
     /**

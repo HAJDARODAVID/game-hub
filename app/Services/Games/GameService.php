@@ -37,8 +37,18 @@ class GameService
         }
     }
 
+    public function getGameId(){
+        if($this->game != NULL){
+            return $this->game->id;
+        }
+    }
+
     public function getInstances(){
         return $this->instances->get();
+    }
+
+    public function getInstanceId(){
+        return $this->instances->id;
     }
 
     public function isActive(){
@@ -86,7 +96,37 @@ class GameService
     }
 
     public function startGameInstance($id){
-        return GameInstance::where('id', $id)->first()->update(['status' => GameInstance::STATUS_ACTIVE]);
+        $this->instances = GameInstance::where('id', $id)->with('getGamePlayers')->first();
+        //Remove not joined users
+        dd($this->instances->getGamePlayers);
+        foreach ($this->instances->getGamePlayers as $player) {
+            $playerObj = new PlayerService($this->instances->id, $player->user_id);
+            if($player->status != GamePlayer::PLAYER_STATUS_IN_GAME){
+                $player->update([
+                    'status' => GamePlayer::PLAYER_STATUS_DENIED,
+                ]);
+            }
+        }
+        $this->instances->update(['status' => GameInstance::STATUS_ACTIVE]);
+        return $this;
+    }
+
+    public function setGameInstancesById($id){
+        $this->instances = GameInstance::where('id', $id)->with('getPlayer', 'getGame')->first();
+        return $this;
+    }
+
+    public function isInstanceActive(){
+        return $this->instances->status == GameInstance::STATUS_ACTIVE ? TRUE : FALSE;
+    }
+
+    public function setGameInfoByInstance(){
+        if($this->instances){
+            if($this->instances->getGame){
+                $this->game = $this->instances->getGame;
+            }
+        }
+        return $this;
     }
 
     private function setGameBasicInfo($name){

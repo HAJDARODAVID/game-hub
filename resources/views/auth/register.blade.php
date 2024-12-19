@@ -62,13 +62,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md offset-md-4">
-                                <button type="submit" class="btn btn-dark" style="border-radius: 0px !important;">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
+                        @livewire('register.register-terms-modal')
                     </form>
                 </div>
             </div>

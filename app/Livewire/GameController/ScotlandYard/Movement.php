@@ -10,4 +10,8 @@ class Movement extends Component
     {
         return view('livewire.game-controller.scotland-yard.movement');
     }
+
+    public function test($params=NULL){
+        dd('ah jaaaaa',$params);
+    }
 }

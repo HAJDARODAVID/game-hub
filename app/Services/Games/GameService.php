@@ -98,9 +98,7 @@ class GameService
     public function startGameInstance($id){
         $this->instances = GameInstance::where('id', $id)->with('getGamePlayers')->first();
         //Remove not joined users
-        dd($this->instances->getGamePlayers);
         foreach ($this->instances->getGamePlayers as $player) {
-            $playerObj = new PlayerService($this->instances->id, $player->user_id);
             if($player->status != GamePlayer::PLAYER_STATUS_IN_GAME){
                 $player->update([
                     'status' => GamePlayer::PLAYER_STATUS_DENIED,

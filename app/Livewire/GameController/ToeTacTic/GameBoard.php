@@ -2,6 +2,7 @@
 
 namespace App\Livewire\GameController\ToeTacTic;
 
+use App\Services\Application\AppConfig;
 use Livewire\Component;
 use App\Services\GameController\ToeTacTic\GameBoardStyle;
 

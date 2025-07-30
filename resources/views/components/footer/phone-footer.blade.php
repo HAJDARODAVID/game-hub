@@ -6,7 +6,7 @@
                         {{ Auth::user()->name }}
                     </div>
                     <div class="d-flex gap-1">
-                        @livewire('messenger.messenger-btn')
+                        @if (AppConfig::messengerModule()) @livewire('messenger.messenger-btn') @endif
                         @livewire('games.my-invites-btn')
                         @if (Auth::user()->game_inst)
                             <x-v-divider />

@@ -185,6 +185,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
         'CardsTypes' => App\Services\GameController\ScotlandYard\CardsTypes::class,
+        'AppConfig' => App\Services\Application\AppConfig::class,
     ])->toArray(),
 
 ];

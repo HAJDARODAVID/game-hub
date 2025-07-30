@@ -9,15 +9,22 @@ use Illuminate\View\Component;
 
 class SquareBoard extends Component
 {
+    const FIELD__COMPONENT_PATH = 'App\\Livewire\\GameBoard\\Games\\';
     public $parentStyle;
     public $centralAreaStyle;
     public $fieldGridStyle;
     public $fieldStyle;
     public $bgStyle;
+    public $showFieldName = FALSE;
+
+    public $fieldComponent;
+    public $fieldComponentExists = FALSE;
+
+    public $centralArea;
     /**
      * Create a new component instance.
      */
-    public function __construct(?SquareBoardStyle $squareBoardStyle = null)
+    public function __construct(?SquareBoardStyle $squareBoardStyle = null, $fieldComponent = NULL)
     {
         $style = is_null($squareBoardStyle) ? SquareBoardStyle::init() : $squareBoardStyle;
         $this->parentStyle = $style->getParentStyle();
@@ -25,6 +32,18 @@ class SquareBoard extends Component
         $this->fieldGridStyle = $style->getFieldGridStyle();
         $this->bgStyle = $style->getBgStyle();
         $this->fieldStyle = $style->getFieldStyles();
+        $this->showFieldName = $style->getFieldNameFlag();
+        $this->fieldComponent = $fieldComponent;
+        $this->checkIfFieldComponentClassExists();
+    }
+
+    private function checkIfFieldComponentClassExists(){
+        $nameExploded = explode('-', $this->fieldComponent);
+        $className = '';
+        foreach($nameExploded as $word){
+            $className .= ucfirst($word);
+        }
+        return $this->fieldComponentExists = class_exists(self::FIELD__COMPONENT_PATH.$className);
     }
 
     /**

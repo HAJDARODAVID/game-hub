@@ -33,7 +33,6 @@
             @yield('content')
         </main>
     </div>
-    @livewire('messenger.messenger-modal')
     <!-- Alpine Plugins -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     @livewireScripts

@@ -12,8 +12,8 @@
                 <div class="d-flex justify-content-between">
                     <div class=""><b>{{ $player['name'] }}</b></div>
                     <div class="">
-                        @if(!$player['invited'])
-                            <button class="btn btn-success btn-sm" style="border-radius: 0px !important;" wire:click='invite({{ $user_id }})'>INVITE</button>
+                        @if(!$player['invited'] && $canInviteMorePlayers)
+                            <button class="btn btn-success btn-sm" style="border-radius: 0px !important;" wire:click='invite({{ $user_id }})' wire:target="invite" wire:loading.attr="disabled">INVITE[{{ $playerCount }}]</button>
                         @endif
                     </div>
                 </div>

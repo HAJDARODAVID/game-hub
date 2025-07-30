@@ -11,6 +11,10 @@ class SquareBoardStyle
     private $gridColumns = NULL;
     private $gridRows = NULL;
 
+    private $fieldNameFlag = FALSE;
+
+    private $fieldName = [];
+
     /**
      * CSS for the parent. CSS grid
      */
@@ -144,18 +148,22 @@ class SquareBoardStyle
 
         for ($x=1; $x <= $this->gridColumns; $x++) { 
             $style['div'.$divCount] = 'grid-column-start: '.$x.'; grid-row-start: 1;';
+            $this->addFieldNameToArray('div'.$divCount);
             $divCount++;
         }
         for ($x=2; $x <= $this->gridRows-1; $x++) { 
             $style['div'.$divCount] = 'grid-column-start: '.$this->gridColumns.'; grid-row-start: '.$x.';';
+            $this->addFieldNameToArray('div'.$divCount);
             $divCount++;
         }
         for ($x=$this->gridColumns; $x >= 1; $x--) {
             $style['div'.$divCount] = 'grid-column-start: '.$x.'; grid-row-start: '.$this->gridRows.';';
+            $this->addFieldNameToArray('div'.$divCount);
             $divCount++;
         }
         for ($x=$this->gridRows-1; $x >= 2; $x--) {
             $style['div'.$divCount] = 'grid-column-start: 1; grid-row-start: '.$x.';';
+            $this->addFieldNameToArray('div'.$divCount);
             $divCount++;
         }
         return $style;
@@ -223,5 +231,35 @@ class SquareBoardStyle
 
     public function getFieldStyles(){
         return $this->squareBoardFieldStyle;
+    }
+
+    /**
+     * This will the flag the value of argument.
+     * Default is FALSE
+     */
+    public function setFieldNameFlag($flag = FALSE){
+        $this->fieldNameFlag = $flag;
+        return $this;
+    }
+
+    /**
+     * Returns the flag value
+     */
+    public function getFieldNameFlag(){
+        return $this->fieldNameFlag;
+    }
+
+    /**
+     * This will add fieldName to array
+     */
+    private function addFieldNameToArray($name): void{
+        $this->fieldName[] = $name;
+    }
+
+    /**
+     * Get all the fieldNames
+     */
+    public function getFieldNames(){
+        return $this->fieldName;
     }
 }

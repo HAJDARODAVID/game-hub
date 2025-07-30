@@ -9,10 +9,11 @@ class StartGameInstanceBtn extends Component
 {
     public $gameInst;
 
-    public function startGameInstance(){
+    public function startGameInstance()
+    {
         $service = (new GameService())->startGameInstance($this->gameInst);
         $this->dispatch('refresh-open-games-list');
-        return;
+        return redirect()->route('gameController', $this->gameInst);
     }
     public function render()
     {

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Config\AppConfig;
+use App\Models\GameInstance;
 use Illuminate\Http\Request;
+use App\Models\Config\AppConfig;
 use Jenssegers\Agent\Facades\Agent;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 //use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -17,7 +19,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth']);
     }
 
     /**
@@ -35,6 +37,12 @@ class HomeController extends Controller
         //Check if the user is on phone, and put into session
         if (!Session::get('is_phone')) {
             Session::put('is_phone', Agent::isPhone());
+        }
+
+        //Check if the users is in a active game instance
+        $gameInstance = GameInstance::find(Auth::user()->game_inst);
+        if ($gameInstance->status == GameInstance::STATUS_ACTIVE) {
+            return redirect()->route('gameController', $gameInstance->id);
         }
 
         //Session::forget('is_phone');

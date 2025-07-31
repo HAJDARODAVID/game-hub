@@ -15,7 +15,9 @@ class AppConfig
 
     private function getConfig($name)
     {
-        if (key_exists($name, $this->appConfig)) return $this->appConfig[$name];
+        if (is_array($this->appConfig)) {
+            if (key_exists($name, $this->appConfig)) return $this->appConfig[$name];
+        }
         return FALSE;
     }
 

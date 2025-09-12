@@ -5,6 +5,7 @@ namespace App\Livewire\GameController\ToeTacTic;
 use App\Services\Application\AppConfig;
 use Livewire\Component;
 use App\Services\GameController\ToeTacTic\GameBoardStyle;
+use App\Services\GameController\ToeTacTic\GamePlayService;
 
 class GameBoard extends Component
 {
@@ -21,6 +22,7 @@ class GameBoard extends Component
 
     public function movement($field)
     {
+        GamePlayService::init();
         $this->filledFields[$field] = TRUE;
     }
 

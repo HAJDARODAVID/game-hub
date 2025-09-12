@@ -41,8 +41,10 @@ class HomeController extends Controller
 
         //Check if the users is in a active game instance
         $gameInstance = GameInstance::find(Auth::user()->game_inst);
-        if ($gameInstance->status == GameInstance::STATUS_ACTIVE) {
-            return redirect()->route('gameController', $gameInstance->id);
+        if ($gameInstance) {
+            if ($gameInstance->status == GameInstance::STATUS_ACTIVE) {
+                return redirect()->route('gameController', $gameInstance->id);
+            }
         }
 
         //Session::forget('is_phone');

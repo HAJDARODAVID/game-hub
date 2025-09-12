@@ -174,6 +174,11 @@ class GameService
         return GamePlayer::where('game_id', $instance)->whereIn('status', [10, 20])->get()->count();
     }
 
+    public function countInGamePlayersInInstance($instance)
+    {
+        return GamePlayer::where('game_id', $instance)->whereIn('status', [20])->get()->count();
+    }
+
     public function getGameParams()
     {
         return $this->params;

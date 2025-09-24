@@ -30,6 +30,7 @@ class GamesController extends Controller
             return redirect()->route('home');
         }
         $gameInst = GameInstance::where('id', $request->get('game_inst'))->with('getGame')->first();
+        if ($gameInst->status == GameInstance::STATUS_ACTIVE) return redirect()->route('gameController', [$gameInst->id]);
         return view('app.game.game-lobby', [
             'gameInst' => $gameInst,
         ]);

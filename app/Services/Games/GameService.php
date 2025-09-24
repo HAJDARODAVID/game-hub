@@ -113,10 +113,17 @@ class GameService
         return GameInstance::where('id', $id)->first()->update(['status' => GameInstance::STATUS_DISABLED]);
     }
 
-    public function startGameInstance($id)
+    /**
+     * This method will set everything up and 'start' game instance.
+     * Action are: remove players who did not confirm the invitation,
+     * change the status from the instance
+     */
+    public function startGameInstance($instance): self
     {
-        $this->instances = GameInstance::where('id', $id)->with('getGamePlayers')->first();
-        //Remove not joined users
+        /**Get the instance model */
+        $this->instances = GameInstance::where('id', $instance)->with('getGamePlayers')->first();
+
+        /**Remove all user who did not confirm invitation. Status: 10*/
         foreach ($this->instances->getGamePlayers as $player) {
             if ($player->status != GamePlayer::PLAYER_STATUS_IN_GAME) {
                 $player->update([
@@ -124,7 +131,10 @@ class GameService
                 ]);
             }
         }
+
+        /**Change instance status to: 2 */
         $this->instances->update(['status' => GameInstance::STATUS_ACTIVE]);
+
         return $this;
     }
 

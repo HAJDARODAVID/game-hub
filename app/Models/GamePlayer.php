@@ -14,16 +14,21 @@ class GamePlayer extends Model
     const PLAYER_STATUS_DENIED = 30;
 
     use HasFactory;
-    protected $table ='game_players';
+    protected $table = 'game_players';
     protected $fillable = [
-        'game_id', 'user_id', 'status',
+        'game_id',
+        'user_id',
+        'status',
+        'turn',
     ];
 
-    public function getUser(): HasOne{
+    public function getUser(): HasOne
+    {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function getGameInstance(): HasMany{
+    public function getGameInstance(): HasMany
+    {
         return $this->hasMany(GameInstance::class, 'id', 'game_id');
     }
 }

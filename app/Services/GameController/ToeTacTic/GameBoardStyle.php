@@ -19,7 +19,7 @@ class GameBoardStyle
 
     private $fields;
 
-    private function __construct()
+    public function __construct()
     {
         $this->createGridLayout()
             ->setCellsHeight()

@@ -7,7 +7,7 @@
             <div class="d-flex justify-content-center align-items-center" style="{{ implode('; ', $fieldInfo['style']) }}">
                 <button class="btn btn-success" style="border-style: none !important; border-radius: 0px !important; width: 100%; height:100%; background-color: rgb(33,37,41)" wire:click='movement("{{ $fieldName }}")' wire:target="movement" wire:loading.attr="disabled" @if(!$controlsEnabled) disabled @endif>
                     @isset($filledFields[$fieldName])
-                        <i class="bi bi-circle fs-1"></i>
+                        <x-game-boards.figure :figuresAsset='$figuresAsset' :players='$filledFields[$fieldName]' />
                     @endisset
                 </button>
             </div>
